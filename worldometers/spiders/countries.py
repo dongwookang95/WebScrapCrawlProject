@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import logging
 ## conda activate virual_workspace
 
 class CountriesSpider(scrapy.Spider):
@@ -17,4 +18,8 @@ class CountriesSpider(scrapy.Spider):
             # absolute_url = f"https://www.worldometers.info{link}"
             # absolute_url = response.urljoin(link)
             # yield scrapy.Request(url=absolute_url)
-            yield response.follow(url=link)
+            yield response.follow(url=link, callback = self.parse_country)
+
+
+    def parse_country(self, response): 
+        logging.info(response.url)
