@@ -2,7 +2,7 @@
 import scrapy
 import logging
 ## conda activate virual_workspace
-
+## scrapy crawl countries -o population_dataset.json
 class CountriesSpider(scrapy.Spider):
     name = 'countries'
     allowed_domains = ['www.worldometers.info']
